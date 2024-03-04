@@ -32,4 +32,7 @@ const fetchImageBannerList = async () => {
   return data;
 };
 
-const imageBannerList = fetchImageBannerList();
+const getBannerList = async () => {
+  const data = await fetchImageBannerList();
+  console.log(data[0].createdAt);
+};
