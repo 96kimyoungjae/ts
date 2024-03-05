@@ -68,18 +68,7 @@ enum TimeDealCatergoryIds {
   Living = 9,
 }
 
-export const CategoryRecord: Record<TimeDealCatergoryIds, string> = {
-  [TimeDealCatergoryIds.All]: "전체",
-  [TimeDealCatergoryIds.Fashion]: "패션",
-  [TimeDealCatergoryIds.Beauty]: "뷰티",
-  [TimeDealCatergoryIds.Food]: "식품",
-  [TimeDealCatergoryIds.Life]: "생활",
-  [TimeDealCatergoryIds.Health]: "건강",
-  [TimeDealCatergoryIds.Appliance]: "가전",
-  [TimeDealCatergoryIds.Living]: "리빙",
-};
-
-export const CategoryList2: { [key in TimeDealCatergoryIds]: string } = {
+export const CATEGORY_LIST: { [key in TimeDealCatergoryIds]: string } = {
   [TimeDealCatergoryIds.All]: "전체",
   [TimeDealCatergoryIds.Fashion]: "패션",
   [TimeDealCatergoryIds.Beauty]: "뷰티",
