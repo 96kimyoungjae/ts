@@ -25,7 +25,6 @@ const getEmail3 = (author: SocialAuthor3 | WebtoonAuthor3) => {
 
 // 과제 1
 // banner interface를 만든 후 타입추론이 잘 작동하도록 만들어주세요.
-// hint: (await res.json() as Promise<Banner[]>)
 const fetchImageBannerList = async () => {
   const res = await fetch("banner");
   const { data } = await res.json();
