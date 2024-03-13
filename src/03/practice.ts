@@ -7,3 +7,7 @@ type AlwayzUser = {
 // 과제 1
 // isDeveloper 속성이 없는 유저로 정의해주세요.
 // type CommonUser
+
+type CommonUser = Omit<AlwayzUser, "isDeveloper">;
+
+type CommonUser2 = Pick<AlwayzUser, "name" | "age">;

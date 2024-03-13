@@ -13,9 +13,20 @@ const BANNER_RESPONSE = [
   },
 ];
 
+type Banner = {
+  _id: string;
+  banner: string;
+  createdAt: string;
+  deletedAt: string;
+  displayEndDate: string;
+  displayStartDate: string;
+  imageType: string;
+  isAvailable: boolean;
+};
+
 const fetchImageBannerList = async () => {
   const res = await fetch("banner");
-  const { data } = await res.json();
+  const { data } = (await res.json()) as { data: Banner[] };
   return data;
 };
 
@@ -52,16 +63,39 @@ const AUTHOR_RESPONSE = {
   ],
 };
 
+type Author = {
+  name: string;
+  age: number;
+};
+
+type SocialAuthor = Author & {
+  email: string;
+  type: "social";
+};
+
+type WebtoonAuthor = Author & {
+  naverEmail: string;
+  type: "webtoon";
+};
+
 const fetchAuthorList = async () => {
   const res = await fetch("authorList");
-  const { data } = await res.json();
+  const { data } = (await res.json()) as {
+    data: (SocialAuthor | WebtoonAuthor)[];
+  };
   return data;
 };
 
 (async () => {
   const authorList = await fetchAuthorList();
 
-  const getAuthorEmail = () => {};
+  const getAuthorEmail = (author: SocialAuthor | WebtoonAuthor) => {
+    if (author.type === "social") {
+      return author.email;
+    }
+
+    return author.naverEmail;
+  };
 
   const emailList = authorList.map((author) => getAuthorEmail(author));
 })();
