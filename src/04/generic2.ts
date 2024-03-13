@@ -1,13 +1,3 @@
-const genericFunc = <T>(arg: T): T => arg;
-
-genericFunc(1);
-genericFunc("Alwayz");
-
-const genericFunc2 = <T, U>(arg: T, arg2: U): [T, U] => [arg, arg2];
-
-genericFunc2(1, 1);
-genericFunc2("1", 2);
-
 function getProperty<T, K extends keyof T>(obj: T, key: K) {
   return obj[key];
 }
@@ -43,27 +33,3 @@ const mergedStrings = mergeArrays(
   (num, str) => `${num}: ${str}`
 );
 console.log(mergedStrings); // ["1: one", "2: two", "3: three", "4: four", "5: five"]
-
-// 과제 1
-// makeArray를 만드세요
-const makeNumberArray = (defaultValue: number, size: number): number[] => {
-  const arr = [];
-
-  for (let i = 0; i < size; i++) {
-    arr.push(defaultValue);
-  }
-
-  return arr;
-};
-
-const makeStringArray = (defaultValue: string, size: number): string[] => {
-  const arr = [];
-
-  for (let i = 0; i < size; i++) {
-    arr.push(defaultValue);
-  }
-
-  return arr;
-};
-
-const makeArray = () => {};
